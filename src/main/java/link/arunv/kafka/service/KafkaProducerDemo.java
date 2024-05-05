@@ -32,28 +32,9 @@ public class KafkaProducerDemo {
             log.info("director name:{}", movie.getDirector());
             log.info("id:{}", movie.getId());
             ProducerRecord<String, String> producerRecord = new
-                    ProducerRecord<>(gettopicName(), 1, "movie", movie.toString());
+                    ProducerRecord<>(gettopicName(), 1, "movie-info", movie.toString());
             producer.send(producerRecord);
         }
-//        for (int j = 0; j <= getPartitions(); j++) {
-//            for (int i = 0; i < 10; i++) {
-//                String key = "id_" + j;
-//                String value = "Hello" + i;
-//                ProducerRecord<String, String> producerRecord = new
-//                        ProducerRecord<>(gettopicName(), j, key, value);
-//                producer.send(producerRecord, new Callback() {
-//                    @Override
-//                    public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-//                        if (e == null) {
-//                            log.info("Key" + key + "Partition" + recordMetadata.partition());
-//                            log.info("key: {}, partition: {} ", key, recordMetadata.partition());
-//                        } else {
-//                            log.error("Error while producing", e);
-//                        }
-//                    }
-//                });
-//            }
-//        }
         producer.flush();
         producer.close();
     }

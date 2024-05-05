@@ -3,9 +3,6 @@ package link.arunv.kafka.controller;
 import link.arunv.kafka.model.Movies;
 import link.arunv.kafka.service.KafkaConsumerDemo;
 import link.arunv.kafka.service.KafkaProducerDemo;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.producer.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +21,7 @@ public class KafkaController {
     private KafkaConsumerDemo kafkaConsumerDemo;
 
     @PostMapping(path = "/sendData")
-    public ResponseEntity sendData(@RequestBody List<Movies> movies){
+    public ResponseEntity sendData(@RequestBody List<Movies> movies) {
         try {
             kafkaProducerDemo.produceData(movies);
             return ResponseEntity.ok("data sent to kafka topic");
@@ -34,7 +31,7 @@ public class KafkaController {
     }
 
     @GetMapping(path = "/pollData")
-    public ResponseEntity pollData(){
+    public ResponseEntity pollData() {
         kafkaConsumerDemo.pollData();
         return ResponseEntity.ok("polling");
     }

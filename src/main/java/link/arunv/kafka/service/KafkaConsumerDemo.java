@@ -7,12 +7,10 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
 
-import static link.arunv.kafka.Util.KafkaConfigs.*;
+import static link.arunv.kafka.Util.KafkaConfigs.getConsumerProperties;
+import static link.arunv.kafka.Util.KafkaConfigs.gettopicName;
 
 @Slf4j
 @Service
@@ -22,7 +20,7 @@ public class KafkaConsumerDemo {
         return new KafkaConsumer<>(getConsumerProperties());
     }
 
-    public void pollData(){
+    public void pollData() {
         KafkaConsumer<String, String> consumer = getConsumerr();
         consumer.subscribe(Arrays.asList(gettopicName()));
         while (true) {
