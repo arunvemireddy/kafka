@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: "kafka-application"
+
+server:
+  port: 4040

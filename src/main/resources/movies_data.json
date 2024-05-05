@@ -1,0 +1,24 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "movie_name": "bahubali",
+      "director": "s.s rajamouli"
+    },
+    {
+      "id": "2",
+      "movie_name": "RRR",
+      "director": "s.s rajamouli"
+    },
+    {
+      "id": "3",
+      "movie_name": "pushpa",
+      "director": "sukumar"
+    },
+    {
+      "id": "4",
+      "movie_name": "k.g.f",
+      "director": "prashanth"
+    }
+  ]
+}
